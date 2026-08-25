@@ -1,0 +1,43 @@
+
+
+LABORATORIO 1: COMANDOS DE RED EN CMD
+
+1. ipconfig
+Muestra la configuracion de red del equipo, como la direccion IP, la mascara y la puerta de enlace. Sin parametros muestra los adaptadores principales y sus datos actuales.
+Ejemplo: ipconfig /all muestra informacion detallada, incluyendo los servidores DNS y la direccion MAC.
+
+2. ping
+Comprueba si otro equipo responde enviando mensajes ICMP y mide el tiempo de comunicacion entre ambos. Tambien permite detectar perdida de paquetes.
+Ejemplo: ping 8.8.8.8 prueba la conectividad con esa direccion IP; ping google.com prueba ademas la resolucion DNS.
+
+3. tracert
+Muestra los saltos o routers que atraviesa una conexion hasta llegar al destino. Los asteriscos indican que un salto no respondio dentro del tiempo esperado, no necesariamente que la conexion este interrumpida.
+Ejemplo: tracert www.google.com sigue la ruta hasta el dominio indicado.
+
+4. netstat
+Muestra conexiones de red activas, puertos abiertos y estadisticas de red. Puede indicar las direcciones local y remota, el estado de cada conexion y, con permisos elevados, el proceso asociado.
+Ejemplo: netstat -ano muestra conexiones, puertos y el identificador PID de cada proceso.
+
+5. nslookup
+Consulta un servidor DNS para obtener la direccion IP asociada a un nombre de dominio. Tambien puede usarse para comprobar que servidor DNS esta respondiendo y consultar otros tipos de registro.
+Ejemplo: nslookup example.com obtiene las direcciones asociadas al dominio.
+
+6. arp
+Muestra y administra la tabla ARP, que relaciona direcciones IP con direcciones MAC en la red local. La tabla se utiliza para entregar tramas al dispositivo correcto dentro de la misma red.
+Ejemplo: arp -a muestra las asociaciones aprendidas; arp -d elimina una entrada especifica.
+
+7. route
+Muestra o modifica la tabla de enrutamiento del equipo. Esta tabla determina por que interfaz y puerta de enlace se envia el trafico destinado a cada red.
+Ejemplo: route print muestra las rutas actuales. Los cambios requieren normalmente permisos de administrador.
+
+8. pathping
+Analiza la ruta hacia un destino y calcula la perdida de paquetes y la latencia en cada salto. Combina la informacion de tracert con varias pruebas de ping, por lo que tarda mas en terminar.
+Ejemplo: pathping 8.8.8.8 genera un informe de rendimiento hacia esa direccion.
+
+9. hostname
+Muestra el nombre asignado al equipo en la red. Es util para identificar el ordenador cuando se trabaja con varios dispositivos.
+Ejemplo: hostname devuelve solamente el nombre actual del equipo.
+
+10. getmac
+Muestra las direcciones MAC de los adaptadores de red del equipo. Una MAC identifica la interfaz de red a nivel de enlace y puede haber varias si existen adaptadores Wi-Fi, Ethernet o virtuales.
+Ejemplo: getmac /v muestra informacion detallada y el nombre de cada conexion.
