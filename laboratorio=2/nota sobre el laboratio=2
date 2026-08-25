@@ -1,0 +1,60 @@
+LABORATORIO 2: COMANDOS NET USER EN CMD
+
+1. net user
+Muestra una lista de las cuentas de usuario locales del equipo. No muestra sus contraseñas.
+Ejemplo: net user permite comprobar rapidamente que cuentas existen.
+
+2. net user <usuario>
+Muestra la informacion y configuracion de una cuenta especifica, como su estado, grupos y fecha de expiracion.
+Ejemplo: net user alumno consulta los datos de la cuenta llamada alumno.
+
+3. net user <usuario> <contraseña> /add
+Crea un usuario local nuevo con el nombre y la contraseña indicados. La cuenta se crea con los valores predeterminados del sistema y no adquiere permisos de administrador automaticamente.
+Ejemplo: net user alumno ClaveTemporal123 /add. Evita escribir contraseñas reales en scripts o en el historial.
+
+4. net user <usuario> /delete
+Elimina la cuenta de usuario indicada. Esto impide iniciar sesion con ella, aunque los archivos de su perfil pueden permanecer en el disco.
+Ejemplo: net user alumno /delete.
+
+5. net user <usuario> <nueva_contraseña>
+Cambia directamente la contraseña de la cuenta indicada. Normalmente requiere una consola con permisos de administrador si se modifica la cuenta de otra persona.
+Ejemplo: net user alumno NuevaClave123.
+
+6. net user <usuario> /times:<dias,horas>
+Define los dias y horarios en los que el usuario puede iniciar sesion. Los horarios se escriben en bloques y dependen del formato aceptado por la version de Windows.
+Ejemplo: net user alumno /times:L-V,08:00-17:00 limita el acceso a ese periodo. /times:all vuelve a permitir todos los horarios.
+
+7. net user <usuario> /active:yes
+Activa la cuenta de usuario para permitir nuevos inicios de sesion sin tener que crearla otra vez.
+Ejemplo: net user alumno /active:yes.
+
+8. net user <usuario> /active:no
+Desactiva la cuenta de usuario sin eliminarla. Sus datos y configuracion se conservan y la cuenta puede reactivarse despues.
+Ejemplo: net user alumno /active:no.
+
+9. net user <usuario> /fullname:"<nombre_completo>"
+Establece el nombre completo que se muestra asociado a la cuenta. Las comillas permiten incluir espacios.
+Ejemplo: net user alumno /fullname:"Ana Lopez".
+
+10. net user <usuario> /comment:"<descripcion>"
+Agrega una descripcion administrativa sobre la cuenta, por ejemplo su finalidad o la persona responsable. Las comillas permiten escribir varias palabras.
+Ejemplo: net user alumno /comment:"Cuenta para practicas de redes".
+
+11. net user <usuario> /passwordchg:yes
+Permite que el usuario cambie su propia contraseña desde las herramientas de Windows. No revela la contraseña actual ni establece una nueva.
+Ejemplo: net user alumno /passwordchg:yes.
+
+12. net user <usuario> /passwordchg:no
+Impide que el usuario cambie su propia contraseña. Un administrador todavia puede modificarla con el comando correspondiente.
+Ejemplo: net user alumno /passwordchg:no.
+
+13. net user <usuario> /expires:<fecha>
+Establece la fecha en la que la cuenta deja de ser valida. La fecha debe respetar el formato regional configurado en Windows.
+Ejemplo: net user alumno /expires:31/12/2026. /expires:never elimina la fecha de expiracion.
+
+14. net user <usuario> *
+Permite cambiar la contraseña de forma interactiva: CMD solicita la nueva contraseña sin mostrar los caracteres escritos. Es preferible a colocar la contraseña directamente en el comando.
+Ejemplo: net user alumno *.
+
+Nota
+Estos comandos deben ejecutarse en CMD con permisos de administrador cuando sea necesario. Sustituye los valores entre < > por datos reales.
